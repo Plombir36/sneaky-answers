@@ -1,2 +1,5 @@
+CXX = g++
+CXXFLAGS = -O2 -s -pedantic -Wall -Wextra -Wshadow -std=c++23
+
 all:
-	g++ main.cpp -O0 -s -std=c++23 -o run
+	$(CXX) main.cpp $(CXXFLAGS) -o run
