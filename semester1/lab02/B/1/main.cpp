@@ -6,13 +6,20 @@ int main(void)
 
 	std::cin >> a >> b >> c;
 
-	if (a + b > c && a + c > b && b + c > a)
+	if (a + b > c || a + c > b || b + c > a)
 	{
-		std::cout << "Rectangular" << std::endl;
+		if (a * a + b * b == c * c || a * a + c * c == b * b || b * b + c * c == a * a)
+		{
+			std::cout << "Rectangular" < std::endl;
+		}
+		else
+		{
+			std::cout << "Non-rectangular" << std::endl;
+		}
 	}
 	else
 	{
-		std::cout << "Non-rectangular" << std::endl;
+		std::cout << "No" << std::endl;
 	}
 
 	return 0;
