@@ -3,57 +3,30 @@
 
 int main(void)
 {
-	int l, r, s, n;
-	bool e;
+	int L, R;
 
-	std::cin >> l >> r;
+	std::cin >> L >> R;
 
-	for (int i = l; i <= r; i++)
+	for (; L <= R; L++)
 	{
-		e = true;
-		n = i;
-		s = 0;
-
-		if (i < 10)
+		unsigned int n, sum = 1, prev_sum = 0;
+		for (int j = 1; sum != prev_sum; j++)
 		{
-			std::cout << i << ' ';
-			continue;
-		}
-
-		while (n != 0)
-		{
-			if (n % 10 != 1 && n % 10 != 0)
-			{
-				e = false;
-			}
-			n /= 10;
-		}
-
-		if (e)
-		{
-			continue;
-		}
-
-		for (int j = 1; true; j++)
-		{
-			n = i;
-			s = 0;
+			prev_sum = sum;
+			sum = 0;
+			n = L;
 
 			while (n != 0)
 			{
-				s += pow(n % 10, j);
+				sum += std::pow(n % 10, j);
 				n /= 10;
 			}
 
-			if (s > i)
-			{
+			if (sum == L)
+				std::cout << L << ' ';
+
+			if (sum >= L)
 				break;
-			}
-			else if (s == i)
-			{
-				std::cout << i << ' ';
-				break;
-			}
 		}
 	}
 
