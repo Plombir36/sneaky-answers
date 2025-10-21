@@ -1,6 +1,5 @@
 CC = g++
-CXXFLAGS = -Ofast -std=c++17 -s
+CXXFLAGS = -O0 -std=c++17 -g
 
 all:
 	$(CC) main.cpp $(CXXFLAGS) -o run
-	./run
